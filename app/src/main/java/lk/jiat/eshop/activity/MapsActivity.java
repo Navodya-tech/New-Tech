@@ -162,7 +162,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String origin = start.latitude + "," + start.longitude;
         String destination = end.latitude + "," + end.longitude;
 
-        String key = "AIzaSyCzptz9oiirB8Ob_bhnJIOzHynuLYgupKA";
+        String key = "GOOGLE_API_KEY";
 
         Call<JsonObject> apiJson = directionApi.getJson(origin, destination, key);
         apiJson.enqueue(new Callback<JsonObject>() {
