@@ -43,4 +43,22 @@ New Tech- Android m-commerce application for browsing and buying electronics
 - Version Control: Uses Gradle Version Catalogs (libs.versions.toml) for clean dependency management.
 - Security: Sensitive keys are managed via the Secrets Gradle Plugin.
 
-Happy Coding! 🚀
+📂 Screenshots
+
+### 👤 User Panel
+<img src="screenshots/user-reg.jpeg" width="250px" alt="User Registeration">
+<img src="screenshots/user-log.jpeg" width="250px" alt="User LogIn">
+<img src="screenshots/user-home.jpeg" width="250px" alt="User Home">
+<img src="screenshots/user-dash.jpeg" width="250px" alt="User Dashboard">
+<img src="screenshots/category.jpeg" width="250px" alt="Category">
+<img src="screenshots/cart.jpeg" width="250px" alt="Shopping Cart">
+<img src="screenshots/user-prof.jpeg" width="250px" alt="User Profile">
+
+### 🛠️ Admin Panel
+<img src="screenshots/admin-log.jpeg" width="250px" alt="Admin LogIn">
+<img src="screenshots/admin-panel.jpeg" width="250px" alt="Admin Home">
+<img src="screenshots/admin-dash.jpeg" width="250px" alt="Admin Dashboard">
+<img src="screenshots/admin-product-manage.jpeg" width="250px" alt="Admin Product Manage">
+<img src="screenshots/admin-order-manage.jpeg" width="250px" alt="Admin Order Manage">
+
+ Happy Coding! 🚀
