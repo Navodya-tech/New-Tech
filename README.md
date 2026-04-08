@@ -42,3 +42,5 @@ New Tech- Android m-commerce application for browsing and buying electronics
 - Architecture: Organized into activity, adapter, and fragment packages for scalability.
 - Version Control: Uses Gradle Version Catalogs (libs.versions.toml) for clean dependency management.
 - Security: Sensitive keys are managed via the Secrets Gradle Plugin.
+
+Happy Coding! 🚀
