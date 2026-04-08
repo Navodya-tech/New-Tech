@@ -1,0 +1,102 @@
+package lk.jiat.eshop.adapter;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.List;
+
+import lk.jiat.eshop.R;
+import lk.jiat.eshop.model.Category;
+
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+
+    private List<Category> categories;
+    private OnCategoryClickListener listener;
+    private FirebaseStorage storage;
+
+    public CategoryAdapter(List<Category> categories, OnCategoryClickListener listener) {
+        this.categories = categories;
+        this.listener = listener;
+        this.storage = FirebaseStorage.getInstance();
+    }
+
+    @NonNull
+    @Override
+    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_category, parent, false);
+
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+        Category category = categories.get(position);
+        holder.categoryName.setText(category.getName());
+
+        String imageUrl = category.getImageUrl();
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            if (imageUrl.startsWith("http")) {
+                // It's a direct web URL
+                Glide.with(holder.itemView.getContext())
+                        .load(imageUrl)
+                        .centerCrop()
+                        .placeholder(R.drawable.app_logo)
+                        .into(holder.categoryImage);
+            } else {
+                // It's a Firebase Storage path
+                storage.getReference(imageUrl)
+                        .getDownloadUrl()
+                        .addOnSuccessListener(uri -> {
+                            Glide.with(holder.itemView.getContext())
+                                    .load(uri)
+                                    .centerCrop()
+                                    .placeholder(R.drawable.app_logo)
+                                    .into(holder.categoryImage);
+                        }).addOnFailureListener(e -> {
+                            holder.categoryImage.setImageResource(R.drawable.app_logo);
+                        });
+            }
+        }
+
+        holder.itemView.setOnClickListener(v -> {
+            Animation animation = AnimationUtils.loadAnimation(v.getContext(), R.anim.click_animation);
+            v.startAnimation(animation);
+
+            if (listener != null) {
+                listener.onCategoryClick(category);
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return categories.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView categoryImage;
+        TextView categoryName;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            categoryImage = itemView.findViewById(R.id.category_image);
+            categoryName = itemView.findViewById(R.id.category_name);
+        }
+    }
+
+    public interface OnCategoryClickListener {
+        void onCategoryClick(Category category);
+    }
+}
