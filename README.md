@@ -61,4 +61,11 @@ New Tech- Android m-commerce application for browsing and buying electronics
 <img src="screenshots/admin-product-manage.jpeg" width="250px" alt="Admin Product Manage">
 <img src="screenshots/admin-order-manage.jpeg" width="250px" alt="Admin Order Manage">
 
- Happy Coding! 🚀
+---
+
+**📝 License**  
+
+This project is open-source for **educational purposes only**.  
+You are free to use it to **learn, explore, or improve your skills**, but **commercial use, distribution, or selling is not allowed** without permission from the original author.
+
+---
