@@ -1,4 +1,4 @@
-# EShop
+# M-commerce
 New Tech- Android m-commerce application for browsing and buying electronics
 
 ## 🚀 Key Features
