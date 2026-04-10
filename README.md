@@ -24,7 +24,7 @@ New Tech- Android m-commerce application for browsing and buying electronics
 
 ## ⚙️ Setup & Installation
 
-1. Clone the repository: https://github.com/yourusername/New-Tech.git
+1. Clone the repository: https://github.com/Navodya-tech/New-Tech.git
 2. Firebase Configuration:
 - Create a project in the Firebase Console.
 - Add an Android app with the package name lk.jiat.eshop.
